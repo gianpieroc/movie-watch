@@ -1,0 +1,25 @@
+{
+  "name": "rakuten-test",
+  "version": "1.0.0",
+  "description": "Rakuten test",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gianpieroc/rakuten-test.git"
+  },
+  "keywords": [
+    "react",
+    "jest",
+    "react-testing-library",
+    "webpack"
+  ],
+  "author": "Gianpiero Costanza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gianpieroc/rakuten-test/issues"
+  },
+  "homepage": "https://github.com/gianpieroc/rakuten-test#readme"
+}
