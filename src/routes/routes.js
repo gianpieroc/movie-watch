@@ -3,6 +3,7 @@ import { Router, Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import Home from "../pages/Home";
 import Movie from "../pages/Movie";
+import Streaming from "../pages/Streaming";
 import { createMemoryHistory } from "history";
 
 const history = createMemoryHistory();
@@ -14,6 +15,7 @@ const Routes = ({ customHistory = history }) => {
     <Router history={customHistory}>
       <Switch>
         <Route path="/movie/:movieId" component={Movie} />
+        <Route path="/streaming/:movieId" component={Streaming} />
         <Route path="/" component={Home} exact />
         <Route component={NotFound} />
       </Switch>
