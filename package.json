@@ -15,12 +15,7 @@
     "type": "git",
     "url": "https://www.github.com/gianpieroc/rakuten-test.git"
   },
-  "keywords": [
-    "react",
-    "jest",
-    "react-testing-library",
-    "webpack"
-  ],
+  "keywords": ["react", "jest", "react-testing-library", "webpack"],
   "author": "Gianpiero Costanza",
   "license": "ISC",
   "bugs": {
@@ -30,6 +25,16 @@
     "hooks": {
       "pre-commit": "npm run lint",
       "pre-push": "npm run test:no-watch"
+    }
+  },
+  "jest": {
+    "coverageReporters": ["text", "html"],
+    "coveragePathIgnorePatterns": ["/src/testUtils"],
+    "coverageThreshold": {
+      "branches": 80,
+      "functions": 80,
+      "lines": 80,
+      "statements": 80
     }
   },
   "homepage": "https://github.com/gianpieroc/rakuten-test#readme",
