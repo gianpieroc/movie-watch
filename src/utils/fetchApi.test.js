@@ -1,4 +1,4 @@
-import fetchApi from "./fetch-api";
+import fetchApi from "./fetchApi";
 
 describe("fetchApi tests", () => {
   const unMockedFetch = global.fetch;
