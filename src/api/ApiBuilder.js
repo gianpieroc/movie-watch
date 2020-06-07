@@ -9,7 +9,11 @@ export default class ApiBuilder {
   constructor(routeParams, options) {
     this.url = this.url + routeParams;
     this.queryParams = rakutenQueryParams;
-    this.options = options;
+    if (options) {
+      const { queryParams, ...fetchBody } = options.body;
+      this.queryParams = queryParams || rakutenQueryParams;
+      this.options = { ...options, body: fetchBody };
+    }
   }
 
   get url() {

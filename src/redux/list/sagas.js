@@ -5,19 +5,20 @@ import { listTypes } from "../../constants";
 import { START_GET_LIST } from "../actionTypes";
 
 export function* getListSaga({ payload }) {
+  const listType = listTypes[payload];
   try {
-    if (!listTypes[payload]) {
+    if (!listType) {
       throw new Error("Invalid list type");
     }
 
-    const response = yield call(getListData, payload);
+    const response = yield call(getListData, listType);
     if (!response || !response.data) {
       throw new Error(response);
     }
 
-    yield put(successGetList({ listType: payload, data: response.data }));
+    yield put(successGetList({ listType, data: response.data }));
   } catch (error) {
-    yield put(failGetList(error.message));
+    yield put(failGetList({ listType, error: error.message }));
   }
 }
 

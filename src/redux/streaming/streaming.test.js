@@ -1,9 +1,15 @@
-import mockStore from "../../testUtils/mockStore";
+import configureMockStore from "../../testUtils/mockStore";
 import { triggeredActions } from "../../testUtils/actionWatcherMiddleware";
 import { startGetStreaming } from "./actions";
 import { SUCCESS_GET_STREAMING } from "../actionTypes";
 
 describe("redux streaming", () => {
+  let mockStore;
+
+  beforeEach(() => {
+    mockStore = configureMockStore();
+  });
+
   beforeAll(() => {
     global.fetch = () =>
       Promise.resolve({

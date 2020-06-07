@@ -6,13 +6,13 @@ const reducerContainer = { error: null, isLoading: false, data: null };
 const listTypesReducer = Object.values(listTypes).reduce(
   (typesAcum, listType) => ({
     ...typesAcum,
-    [listType]: reducerContainer,
+    [listType]: reducerContainer
   }),
-  {},
+  {}
 );
 
 export const initialState = {
-  ...listTypesReducer,
+  ...listTypesReducer
 };
 
 export default (state = initialState, action) => {
@@ -22,25 +22,25 @@ export default (state = initialState, action) => {
         ...state,
         [action.payload]: {
           error: null,
-          isLoading: true,
-        },
+          isLoading: true
+        }
       };
     case ActionTypes.FAIL_GET_LIST:
       return {
         ...state,
-        [action.payload]: {
-          error: null,
-          isLoading: true,
-        },
+        [action.payload.listType]: {
+          error: action.payload.error,
+          isLoading: false
+        }
       };
     case ActionTypes.SUCCESS_GET_LIST:
       return {
         ...state,
         [action.payload.listType]: {
-          data: action.payload,
+          data: action.payload.data,
           error: null,
-          isLoading: false,
-        },
+          isLoading: false
+        }
       };
     default:
       return state;

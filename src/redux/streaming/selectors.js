@@ -1,7 +1,7 @@
-export const isLoadingSelector = state => state.movie.isLoading;
+export const streamingSelector = (state) => state.streaming;
 
-export const moviesSelector = state => state.movie.movieList;
+export const streamingDataSelector = (state) => state.streaming.data;
 
-export const searchMoviesSelector = state => state.movie.searchMoviesHistory;
+export const isLoadingStreamingSelector = (state) => state.streaming.isLoading;
 
-export const movieSelectedSelector = state => state.movie.movieSelected;
+export const streamingErrorSelector = (state) => state.streaming.error;

@@ -2,9 +2,10 @@ import { call, put } from "redux-saga/effects";
 import { successGetStreaming, failGetStreaming } from "./actions";
 import { getStreamingData } from "../../api";
 
-export function* getStreaming() {
+export function* getStreaming({ payload }) {
   try {
-    const response = yield call(getStreamingData);
+    const movieId = payload;
+    const response = yield call(getStreamingData, movieId);
 
     if (!response || !response.data) {
       throw new Error(response);

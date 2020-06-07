@@ -1,11 +1,13 @@
-import mockStore from "../../testUtils/mockStore";
+import configureMockStore from "../../testUtils/mockStore";
 import { triggeredActions } from "../../testUtils/actionWatcherMiddleware";
 import { listTypes } from "../../constants";
 import { startGetList, getAllLists } from "./actions";
 import { SUCCESS_GET_LIST, FAIL_GET_LIST } from "../actionTypes";
 
 describe("redux list", () => {
+  let mockStore;
   beforeAll(() => {
+    mockStore = configureMockStore();
     global.fetch = () =>
       Promise.resolve({
         ok: true,
@@ -42,7 +44,7 @@ describe("redux list", () => {
     const failGetListAction = getAction(FAIL_GET_LIST);
 
     expect(failGetListAction.type).toBe(FAIL_GET_LIST);
-    expect(failGetListAction.payload).toBe("Invalid list type");
+    expect(failGetListAction.payload.error).toBe("Invalid list type");
   });
 
   it("should execute all lists", async () => {

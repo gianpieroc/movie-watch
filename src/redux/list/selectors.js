@@ -1,7 +1,21 @@
-export const isLoadingSelector = state => state.movie.isLoading;
+export const listSelector = (state) => state.list;
 
-export const moviesSelector = state => state.movie.movieList;
+export const listTypeSelector = (state, listType) =>
+  listSelector(state)[listType];
 
-export const searchMoviesSelector = state => state.movie.searchMoviesHistory;
+export const listTypeDataSelector = (state, listType) =>
+  listTypeSelector(state, listType) && listTypeSelector(state, listType).data;
 
-export const movieSelectedSelector = state => state.movie.movieSelected;
+export const isLoadingListSelector = (state, listType) =>
+  listTypeSelector(state, listType) &&
+  listTypeSelector(state, listType).isLoading;
+
+export const errorListSelector = (state, listType) =>
+  listTypeSelector(state, listType) && listTypeSelector(state, listType).error;
+
+export const allListsDataSelector = (state) => {
+  const listReducer = listSelector(state);
+  return Object.keys(listReducer).map((listType) =>
+    listTypeDataSelector(state, listType)
+  );
+};

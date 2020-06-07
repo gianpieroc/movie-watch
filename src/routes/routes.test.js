@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { createMemoryHistory } from "history";
 import renderWithProvider from "../testUtils/testRenderer";
-import "@testing-library/jest-dom/extend-expect";
-import Routes from "./Routes";
+import Routes from "../testUtils/TestRouter";
 
 const AppRouter = ({ history }) => <Routes customHistory={history} />;
 
@@ -22,9 +21,10 @@ describe("Navigation", () => {
     expect(getByTestId("home-page")).toBeTruthy();
   });
 
-  it("Should render Movie page", () => {
+  it("Should render Movie page", async () => {
     history.push("/movie/my-movie");
     const { getByTestId } = renderWithProvider(<AppRouter history={history} />);
+
     expect(getByTestId("movie-page")).toBeTruthy();
   });
 

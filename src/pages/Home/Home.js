@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllLists } from "../../redux/list/actions";
+import { allListsDataSelector } from "../../redux/list/selectors";
+import HorizontalList from "../../components/HorizontalList/HorizontalList";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const allLists = useSelector(allListsDataSelector);
 
   useEffect(() => {
     dispatch(getAllLists());
@@ -12,6 +15,8 @@ const Home = () => {
   return (
     <div data-testid="home-page">
       <h1>Home</h1>
+      {Array.isArray(allLists) &&
+        allLists.map((list, id) => <HorizontalList list={list} key={id} />)}
     </div>
   );
 };
