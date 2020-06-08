@@ -32,14 +32,24 @@ const HorizontalList = ({ list }) => {
 
   return (
     <ListContainer>
-      <ListTitle>{name}</ListTitle>
+      <ListTitle data-testid="list-container-name">{name}</ListTitle>
       <ArrowsContainer>
         <HorizontalListContainer ref={ref} onScroll={onScrollListener}>
           {Array.isArray(movieList) &&
             movieList.map((movie) => <Card key={movie.id} movie={movie} />)}
         </HorizontalListContainer>
-        {hasLeftArrow && <LeftArrow onClick={moveTo(sectionIndex - 1)} />}
-        {hasRightArrow && <RightArrow onClick={moveTo(sectionIndex + 1)} />}
+        {hasLeftArrow && (
+          <LeftArrow
+            data-testId="horizontal-list-left-arrow"
+            onClick={moveTo(sectionIndex - 1)}
+          />
+        )}
+        {hasRightArrow && (
+          <RightArrow
+            data-testId="horizontal-list-right-arrow"
+            onClick={moveTo(sectionIndex + 1)}
+          />
+        )}
       </ArrowsContainer>
     </ListContainer>
   );
@@ -48,7 +58,8 @@ const HorizontalList = ({ list }) => {
 HorizontalList.propTypes = {
   list: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    contents: PropTypes.shape({ data: PropTypes.shape({}) }).isRequired
+    contents: PropTypes.shape({ data: PropTypes.arrayOf(PropTypes.shape({})) })
+      .isRequired
   })
 };
 

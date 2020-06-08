@@ -1,19 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PropTypes from "prop-types";
-import { createMemoryHistory } from "history";
 import NavBar from "../components/NavBar";
 import Grid from "../components/Grid";
 import routesList from "./routesList";
 
-const history = createMemoryHistory();
-
-const Routes = ({ customHistory = history }) => {
+const Routes = () => {
   return (
     <>
       <NavBar />
       <Grid>
-        <Router history={customHistory}>
+        <Router>
           <Switch>
             {routesList.map(({ key, ...routeProps }) => (
               <Route key={key} {...routeProps} />
@@ -23,10 +19,6 @@ const Routes = ({ customHistory = history }) => {
       </Grid>
     </>
   );
-};
-
-Routes.propTypes = {
-  customHistory: PropTypes.shape({})
 };
 
 export default Routes;

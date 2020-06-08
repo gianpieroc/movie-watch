@@ -7,6 +7,10 @@ export default {
   onBackgroundColor: "#F7F7F7",
   backgroundContainerColor: "#171717",
   onBackgroundContainerColor: "#F9F9F9",
+  panelBackgroundColor: "#f1f1f1",
+  onPanelBackgroundColor: "#252525",
+  panelDescriptionBackgroundColor: "#D9D9D9",
+  onPanelDescriptionBackgroundColor: "#252525",
   sizes: {
     largeDesktop: "1600px",
     desktop: "1024px",
@@ -23,9 +27,12 @@ export default {
     fontSize: "20px"
   },
   h4: {
-    fontSize: "14px"
+    fontSize: "16px"
   },
   h5: {
+    fontSize: "14px"
+  },
+  h6: {
     fontSize: "13px",
     lineHeight: "30px"
   },

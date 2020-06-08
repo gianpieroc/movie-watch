@@ -29,6 +29,8 @@ export default (state = initialState, action) => {
         error: action.payload,
         isLoading: false
       };
+    case ActionTypes.CLEAR_MOVIE:
+      return { ...initialState };
     default:
       return state;
   }

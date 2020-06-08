@@ -15,10 +15,11 @@ export const HorizontalListContainer = styled.div`
   overflow-x: auto;
   white-space: nowrap;
   ::-webkit-scrollbar {
-    display: none; /* Chrome Safari */
+    display: none;
   }
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  height: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
 `;
@@ -54,7 +55,7 @@ export const RightArrow = styled.div`
   :hover {
     background: linear-gradient(
       to left,
-      rgba(23, 23, 23, 1) 0,
+      rgba(10, 10, 10, 1) 0,
       transparent 100%
     );
     transition-duration: 0.4s;
@@ -88,7 +89,7 @@ export const LeftArrow = styled.div`
   :hover {
     background: linear-gradient(
       to right,
-      rgba(23, 23, 23, 1) 0,
+      rgba(10, 10, 10, 1) 0,
       transparent 100%
     );
     transition-duration: 0.4s;

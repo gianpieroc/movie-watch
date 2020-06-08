@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CardContainer, CardImage } from "./Card.styled";
-import { Link } from "react-router-dom";
+import { CardContainer, CardImage, StyledLink } from "./Card.styled";
 
 const Card = ({ movie }) => {
   if (!movie) {
@@ -12,11 +11,11 @@ const Card = ({ movie }) => {
   } = movie;
 
   return (
-    <Link to={`/movie/${movie.id}`}>
-      <CardContainer>
-        <CardImage src={artwork} />
+    <StyledLink to={`/movie/${movie.id}`}>
+      <CardContainer data-testId="card-movie">
+        <CardImage src={artwork} alt={`artwork-${movie.id}`} />
       </CardContainer>
-    </Link>
+    </StyledLink>
   );
 };
 

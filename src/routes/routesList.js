@@ -16,7 +16,7 @@ const routesList = [
     strict: true,
     sensitive: true
   },
-  { component: NotFound }
+  { key: "not-found", component: NotFound }
 ];
 
 export default routesList;

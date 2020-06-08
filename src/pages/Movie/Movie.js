@@ -1,14 +1,31 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { startGetMovieById } from "../../redux/movie/actions";
+import { startGetMovieById, clearMovie } from "../../redux/movie/actions";
 import Grid from "../../components/Grid";
 import {
   isLoadingMovieSelector,
   movieDataSelector
 } from "../../redux/movie/selectors";
-import Button from "../../components/Button";
-import { CoverImg } from "./Movie.styled";
+import {
+  MovieLink,
+  PlotText,
+  CoverImg,
+  HeadlineSection,
+  WatchTrailerButton,
+  InfoSection,
+  DescriptionSection,
+  ShareSection,
+  InfoLabelsPanel,
+  InfoLabel,
+  ActorImage,
+  ActorContent,
+  ActorInfoText,
+  RowContainer,
+  GenreImage,
+  ColumnContainer,
+  PunctuationLabel
+} from "./Movie.styled";
 
 const Movie = () => {
   const dispatch = useDispatch();
@@ -18,6 +35,7 @@ const Movie = () => {
 
   useEffect(() => {
     dispatch(startGetMovieById(movieId));
+    return () => dispatch(clearMovie());
   }, []);
 
   if (isLoading || !movie) {
@@ -25,20 +43,75 @@ const Movie = () => {
   }
 
   const {
-    title,
     plot,
     id,
+    duration,
+    year,
+    original_title,
+    classification: { name: classificationName },
+    countries,
+    actors,
+    genres,
+    scores,
     images: { snapshot }
   } = movie;
+  const firstCountry =
+    Array.isArray(countries) && countries.length > 0 && countries[0].name;
 
   return (
     <Grid data-testid="movie-page">
-      <CoverImg src={snapshot} />
-      <h1>{title}</h1>
-      <h3>{plot}</h3>
-      <Link to={`/streaming/${id}`}>
-        <Button>Watch Trailer</Button>
-      </Link>
+      <HeadlineSection>
+        <CoverImg src={snapshot} />
+        <MovieLink to={`/streaming/${id}`}>
+          <WatchTrailerButton>Watch Trailer</WatchTrailerButton>
+        </MovieLink>
+      </HeadlineSection>
+      <InfoSection>
+        <DescriptionSection>
+          <InfoLabelsPanel>
+            <InfoLabel>{classificationName}</InfoLabel>
+            <InfoLabel>{duration}min</InfoLabel>
+            <InfoLabel>{year}</InfoLabel>
+            <InfoLabel>{firstCountry}</InfoLabel>
+            <InfoLabel>Título original: {original_title}</InfoLabel>
+          </InfoLabelsPanel>
+          <PlotText>{plot}</PlotText>
+          <InfoLabel>Dirección y Reparto</InfoLabel>
+          <RowContainer>
+            {actors.map((actor) => (
+              <ActorContent key={actor.id}>
+                <ActorImage src={actor.photo} />
+                <ActorInfoText>{actor.name}</ActorInfoText>
+              </ActorContent>
+            ))}
+          </RowContainer>
+          <RowContainer>
+            <ColumnContainer>
+              <InfoLabel>Géneros</InfoLabel>
+              <RowContainer>
+                {genres.map((genre) => (
+                  <ActorContent key={genre.id}>
+                    <GenreImage src={genre.additional_images.icon} />
+                    <ActorInfoText>{genre.name}</ActorInfoText>
+                  </ActorContent>
+                ))}
+              </RowContainer>
+            </ColumnContainer>
+            <ColumnContainer>
+              <InfoLabel>Puntuaciones</InfoLabel>
+              <RowContainer>
+                {scores.map(({ id, score, site: { name } }) => (
+                  <ActorContent key={id}>
+                    <PunctuationLabel>{score}</PunctuationLabel>
+                    <ActorInfoText>{name}</ActorInfoText>
+                  </ActorContent>
+                ))}
+              </RowContainer>
+            </ColumnContainer>
+          </RowContainer>
+        </DescriptionSection>
+        <ShareSection></ShareSection>
+      </InfoSection>
     </Grid>
   );
 };

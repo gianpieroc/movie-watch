@@ -26,7 +26,10 @@ export default class ApiBuilder {
 
   async retrieve() {
     this.appendQueryParams(this.queryParams);
-    const result = await fetchApi(this.url, this.options);
+    const options = this.options.body
+      ? { ...this.options, body: JSON.stringify(this.options.body) }
+      : options;
+    const result = await fetchApi(this.url, options);
     return result;
   }
 }

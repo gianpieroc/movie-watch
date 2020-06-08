@@ -1,8 +1,14 @@
 const ERROR_MESSAGE = "TIMEOUT_ERROR";
-const REQUEST_TIMEOUT_MS = 10000;
+const REQUEST_TIMEOUT_MS = 80000;
 
 const fetchAsync = async (url, options) => {
-  const response = await fetch(url, options);
+  const headers = { "Content-Type": "application/JSON" };
+
+  const optionsWithHeader = {
+    ...options,
+    headers
+  };
+  const response = await fetch(url, optionsWithHeader);
   if (!response.ok) {
     const errorMessage = `Failed connecting to ${url}`;
     return new Error(errorMessage);

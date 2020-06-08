@@ -13,7 +13,6 @@ export function* getStreaming({ payload }) {
 
     yield put(successGetStreaming(response.data));
   } catch (error) {
-    console.error(error.message);
     yield put(failGetStreaming(error));
   }
 }
