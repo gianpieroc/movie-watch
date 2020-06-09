@@ -10,6 +10,6 @@ export function* getMovieById({ payload }) {
     }
     yield put(successGetMovieById(response.data));
   } catch (error) {
-    yield put(failGetMovieById(error.message));
+    yield put(failGetMovieById(error.message || error));
   }
 }

@@ -9,7 +9,7 @@ const fetchAsync = async (url, options) => {
     headers
   };
   const response = await fetch(url, optionsWithHeader);
-  if (!response.ok) {
+  if (!response || !response.json) {
     const errorMessage = `Failed connecting to ${url}`;
     return new Error(errorMessage);
   }

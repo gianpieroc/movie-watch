@@ -25,7 +25,7 @@ export const HorizontalListContainer = styled.div`
 `;
 
 export const ArrowsContainer = styled.div`
-  height: 300px;
+  height: 100%;
   position: relative;
 `;
 

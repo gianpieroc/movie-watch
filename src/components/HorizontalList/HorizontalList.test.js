@@ -17,13 +17,14 @@ describe("HorizontalList", () => {
 
   it("Should render list", () => {
     const { data: listData } = list;
-    const { queryByTestId, getByTestId } = render(
+    const { queryAllByTestId, getByTestId } = render(
       <Router history={createBrowserHistory()}>
         <HorizontalList list={listData} />
       </Router>
     );
+    expect(getByTestId("list-container")).toBeTruthy();
     expect(getByTestId("list-container-name")).toBeTruthy();
-    expect(queryByTestId("card-movie")).toHaveLength(8);
+    expect(queryAllByTestId("card-movie")).toHaveLength(18);
   });
 
   it("should not render left arrow at start", () => {

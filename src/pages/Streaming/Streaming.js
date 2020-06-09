@@ -31,7 +31,7 @@ const Streaming = () => {
         controls
         width="100%"
         height="100%"
-        url="https://prod-stpeter-pmd.limelight.cdn.rakuten.tv/8/3/0/830b8d2e2b552ad51e72ef927f6116b1-mc-0-137-0-0_SD_TRAILER_PAR_1_1/830b8d2e2b552ad51e72ef927f6116b1-mc-0-137-0-0_SD_TRAILER_PAR_1_1.mp4?e=1591638118&amp;h=1b27435aba84599d9103aba17bbb6bd1"
+        url={streaming.stream_infos[0].url}
       />
     </StreamingContainer>
   );

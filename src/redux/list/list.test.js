@@ -3,16 +3,19 @@ import { triggeredActions } from "../../testUtils/actionWatcherMiddleware";
 import { listTypes } from "../../constants";
 import { startGetList, getAllLists } from "./actions";
 import { SUCCESS_GET_LIST, FAIL_GET_LIST } from "../actionTypes";
+import list from "../../testUtils/__mocks__/list";
+import { listTypeDataSelector, errorListSelector } from "./selectors";
 
 describe("redux list", () => {
   let mockStore;
+
   beforeAll(() => {
     mockStore = configureMockStore();
     global.fetch = () =>
       Promise.resolve({
         ok: true,
         json: () => ({
-          data: "data"
+          data: list.data
         })
       });
   });
@@ -24,14 +27,18 @@ describe("redux list", () => {
   it("should get List", async () => {
     const { waitForAction, getAction } = triggeredActions;
 
-    mockStore.dispatch(startGetList("populares-en-taquilla"));
+    mockStore.dispatch(startGetList("estrenos-espanoles"));
 
     await waitForAction(SUCCESS_GET_LIST);
+
     const successGetListAction = getAction(SUCCESS_GET_LIST);
 
+    expect(
+      listTypeDataSelector(mockStore.getState(), "estrenos-espanoles")
+    ).toBe(list.data);
     expect(successGetListAction.type).toBe(SUCCESS_GET_LIST);
-    expect(successGetListAction.payload.listType).toBe("populares-en-taquilla");
-    expect(successGetListAction.payload.data).toBe("data");
+    expect(successGetListAction.payload.listType).toBe("estrenos-espanoles");
+    expect(successGetListAction.payload.data).toBe(list.data);
   });
 
   it("should throw invalid type error", async () => {
@@ -43,6 +50,9 @@ describe("redux list", () => {
 
     const failGetListAction = getAction(FAIL_GET_LIST);
 
+    expect(errorListSelector(mockStore.getState(), "lista-no-existente")).toBe(
+      "Invalid list type"
+    );
     expect(failGetListAction.type).toBe(FAIL_GET_LIST);
     expect(failGetListAction.payload.error).toBe("Invalid list type");
   });

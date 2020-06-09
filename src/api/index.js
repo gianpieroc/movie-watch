@@ -16,7 +16,6 @@ const getMovieData = async (movieId) => {
 
 const getStreamingData = async (movieId) => {
   const streamingInstance = new Streaming(movieId);
-  console.log(streamingInstance.options, movieId);
   const streaming = await streamingInstance.retrieve();
   return streaming;
 };

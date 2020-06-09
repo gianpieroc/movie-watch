@@ -28,6 +28,13 @@ describe("Navigation", () => {
     expect(getByTestId("movie-page")).toBeTruthy();
   });
 
+  it("Should render Streaming page", async () => {
+    history.push("/streaming/my-movie");
+    const { getByTestId } = renderWithProvider(<AppRouter history={history} />);
+
+    expect(getByTestId("streaming-page")).toBeTruthy();
+  });
+
   it("Should render 404 page when the URL is invalid", () => {
     history.push("/bad-route");
     const { getByText } = renderWithProvider(<AppRouter history={history} />);

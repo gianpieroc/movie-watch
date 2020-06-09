@@ -34,7 +34,11 @@ const HorizontalList = ({ list }) => {
     <ListContainer>
       <ListTitle data-testid="list-container-name">{name}</ListTitle>
       <ArrowsContainer>
-        <HorizontalListContainer ref={ref} onScroll={onScrollListener}>
+        <HorizontalListContainer
+          data-testid="list-container"
+          ref={ref}
+          onScroll={onScrollListener}
+        >
           {Array.isArray(movieList) &&
             movieList.map((movie) => <Card key={movie.id} movie={movie} />)}
         </HorizontalListContainer>

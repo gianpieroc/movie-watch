@@ -16,10 +16,6 @@ export default class ApiBuilder {
     }
   }
 
-  get url() {
-    return this.url;
-  }
-
   appendQueryParams() {
     this.url = this.url + this.queryParams;
   }

@@ -18,7 +18,9 @@ export function* getListSaga({ payload }) {
 
     yield put(successGetList({ listType, data: response.data }));
   } catch (error) {
-    yield put(failGetList({ listType, error: error.message }));
+    yield put(
+      failGetList({ listType: listType || payload, error: error.message })
+    );
   }
 }
 

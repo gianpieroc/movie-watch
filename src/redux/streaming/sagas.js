@@ -8,7 +8,7 @@ export function* getStreaming({ payload }) {
     const response = yield call(getStreamingData, movieId);
 
     if (!response || !response.data) {
-      throw new Error(response);
+      throw new Error(response || "INTERNAL ERROR");
     }
 
     yield put(successGetStreaming(response.data));
