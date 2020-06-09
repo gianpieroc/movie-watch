@@ -33,6 +33,7 @@
     }
   },
   "jest": {
+    "testURL": "http://localhost",
     "coverageReporters": [
       "text",
       "html"

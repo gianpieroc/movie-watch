@@ -22,7 +22,7 @@ describe("HorizontalList", () => {
         <HorizontalList list={listData} />
       </Router>
     );
-    expect(getByTestId("list-container")).toBeTruthy();
+    expect(getByTestId("list")).toBeTruthy();
     expect(getByTestId("list-container-name")).toBeTruthy();
     expect(queryAllByTestId("card-movie")).toHaveLength(18);
   });

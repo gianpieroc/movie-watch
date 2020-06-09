@@ -24,7 +24,7 @@ const Streaming = () => {
   }
 
   return (
-    <StreamingContainer data-testid="streaming-page">
+    <StreamingContainer data-testid="streaming-page-content">
       <ReactPlayer
         playing
         light

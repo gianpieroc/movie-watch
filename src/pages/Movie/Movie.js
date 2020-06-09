@@ -59,7 +59,7 @@ const Movie = () => {
     Array.isArray(countries) && countries.length > 0 && countries[0].name;
 
   return (
-    <Grid data-testid="movie-page">
+    <Grid data-testid="movie-page-content">
       <HeadlineSection>
         <CoverImg src={snapshot} />
         <MovieLink to={`/streaming/${id}`}>
@@ -79,7 +79,7 @@ const Movie = () => {
           <InfoLabel>Dirección y Reparto</InfoLabel>
           <RowContainer>
             {actors.map((actor) => (
-              <ActorContent key={actor.id}>
+              <ActorContent key={actor.id} data-testid="movie-actor">
                 <ActorImage src={actor.photo} />
                 <ActorInfoText>{actor.name}</ActorInfoText>
               </ActorContent>
@@ -90,7 +90,7 @@ const Movie = () => {
               <InfoLabel>Géneros</InfoLabel>
               <RowContainer>
                 {genres.map((genre) => (
-                  <ActorContent key={genre.id}>
+                  <ActorContent key={genre.id} data-testid="movie-genre">
                     <GenreImage src={genre.additional_images.icon} />
                     <ActorInfoText>{genre.name}</ActorInfoText>
                   </ActorContent>

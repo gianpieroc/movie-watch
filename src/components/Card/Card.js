@@ -11,8 +11,8 @@ const Card = ({ movie }) => {
   } = movie;
 
   return (
-    <StyledLink to={`/movie/${movie.id}`}>
-      <CardContainer data-testId="card-movie">
+    <StyledLink to={`/movie/${movie.id}`} data-testId="card-movie">
+      <CardContainer>
         <CardImage src={artwork} alt={`artwork-${movie.id}`} />
       </CardContainer>
     </StyledLink>

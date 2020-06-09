@@ -14,7 +14,6 @@ const Home = () => {
 
   return (
     <div data-testid="home-page">
-      <h1>Home</h1>
       {Array.isArray(allLists) &&
         allLists.map((list, id) => <HorizontalList list={list} key={id} />)}
     </div>

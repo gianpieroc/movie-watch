@@ -1,7 +1,8 @@
 export const streamingSelector = (state) => state.streaming;
 
-export const streamingDataSelector = (state) => state.streaming.data;
+export const streamingDataSelector = (state) => streamingSelector(state).data;
 
-export const isLoadingStreamingSelector = (state) => state.streaming.isLoading;
+export const isLoadingStreamingSelector = (state) =>
+  streamingSelector(state).isLoading;
 
-export const streamingErrorSelector = (state) => state.streaming.error;
+export const streamingErrorSelector = (state) => streamingSelector(state).error;

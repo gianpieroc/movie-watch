@@ -15,3 +15,14 @@ export const API_URL = "https://gizmo.rakuten.tv";
 export const MOVIE_ENDPOINT = "/v3/movies/";
 export const STREAMING_ENDPOINT = "/v3/me/streamings";
 export const LIST_ENDPOINT = "/v3/lists/";
+
+export const streamingCommonBody = {
+  audio_language: "SPA",
+  audio_quality: "2.0",
+  content_type: "movies",
+  device_serial: "device_serial_1",
+  device_stream_video_quality: "FHD",
+  player: "web:PD-NONE",
+  subtitle_language: "MIS",
+  video_type: "trailer"
+};

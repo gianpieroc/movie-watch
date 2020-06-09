@@ -31,11 +31,11 @@ const HorizontalList = ({ list }) => {
   } = list;
 
   return (
-    <ListContainer>
+    <ListContainer data-testid="list-container">
       <ListTitle data-testid="list-container-name">{name}</ListTitle>
       <ArrowsContainer>
         <HorizontalListContainer
-          data-testid="list-container"
+          data-testid="list"
           ref={ref}
           onScroll={onScrollListener}
         >

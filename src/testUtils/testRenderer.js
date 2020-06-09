@@ -30,11 +30,13 @@ export const renderWithProviderAndRouter = (ui, state) => {
   const history = createBrowserHistory();
   const store = configureMockStore(state);
   const Wrapper = ({ children }) => (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle theme={theme} />
-      <Router history={history}>{children}</Router>
-      <Provider store={store}></Provider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle theme={theme} />
+        <Router history={history}>{children}</Router>
+        <Provider store={store}></Provider>
+      </ThemeProvider>
+    </Provider>
   );
   Wrapper.propTypes = {
     children: PropTypes.node

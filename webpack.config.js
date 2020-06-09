@@ -25,5 +25,18 @@ module.exports = {
     historyApiFallback: true,
     watchContentBase: true,
     open: true
+  },
+  optimization: {
+    minimize: true,
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          chunks: "all",
+          test: /node_modules/
+        }
+      }
+    }
   }
 };
