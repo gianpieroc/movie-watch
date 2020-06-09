@@ -8,7 +8,6 @@ module.exports = {
     filename: "main.js",
     publicPath: "/"
   },
-  mode: "development",
   module: {
     rules: [
       { test: /\.jsx?$/, loader: "babel-loader", exclude: /node_modules/ }
@@ -29,6 +28,7 @@ module.exports = {
   node: {
     fs: "empty"
   },
+  devtool: process.env.NODE_ENV === "production" ? false : "inline-source-map",
   optimization: {
     minimize: true,
     splitChunks: {
@@ -41,5 +41,9 @@ module.exports = {
         }
       }
     }
+  },
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000
   }
 };
