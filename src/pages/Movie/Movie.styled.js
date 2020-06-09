@@ -34,6 +34,10 @@ export const InfoLabel = styled.p`
   font-size: ${theme.h5.fontSize};
   font-weight: bold;
   margin-right: 20px;
+
+  @media (max-width: ${theme.sizes.tablet}){
+    font-size: ${theme.h2.fontSize};
+  }
 `}
 `;
 
@@ -43,6 +47,10 @@ export const PunctuationLabel = styled.p`
   font-weight: bold;
   text-align: center;
   margin: 0;
+
+  @media (max-width: ${theme.sizes.tablet}){
+    font-size: ${theme.h1.fontSize};
+  }
 `}
 `;
 
@@ -70,6 +78,10 @@ export const ActorInfoText = styled.h5`
   margin: 5px 0;
   font-weight: 500;
   text-align: center;
+
+  @media (max-width: ${theme.sizes.tablet}){
+    font-size: 22px;
+  }
 `}
 `;
 
@@ -115,8 +127,10 @@ export const WatchTrailerButton = styled(Button)`
   font-size: ${theme.h3.fontSize};
   height: 100%;
   width: 100%;
-  margin: 0;
   margin: 20px;
+  @media (max-width: ${theme.sizes.tablet}){
+    font-size: ${theme.h1.fontSize};
+  }
 `}
 `;
 
@@ -125,6 +139,9 @@ export const PlotText = styled.h3`
   margin: 0;
   font-size: ${theme.h4.fontSize};
   font-weight: 400;
+  @media (max-width: ${theme.sizes.tablet}){
+    font-size: ${theme.h2.fontSize};
+  }
 `}
 `;
 

@@ -10,6 +10,5 @@ export const GlobalStyle = createGlobalStyle`${({ theme }) => `
       -moz-osx-font-smoothing: grayscale;
       background: ${theme.backgroundColor};
       color: ${theme.onBackgroundColor}
-  }
 `}
 `;

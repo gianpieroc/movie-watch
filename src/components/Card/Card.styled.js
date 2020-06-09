@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import Image from "../Image";
 
 export const CardContainer = styled.div`
+  ${({ theme }) => `
   width: 150px;
   margin: 0 5px;
+
+  @media (max-width: ${theme.sizes.tablet}){
+    width 350px;
+  }:
+`}
 `;
 
 export const StyledLink = styled(Link)`

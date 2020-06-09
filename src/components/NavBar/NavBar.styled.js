@@ -8,6 +8,10 @@ export const Nav = styled.nav`
   height: 60px;
   display: flex;
   align-items:center;
+
+  @media (max-width: ${theme.sizes.tablet}){
+    height: 100px;
+  }: 
 `}
 `;
 
@@ -15,6 +19,10 @@ export const NavTitle = styled.h1`
   ${({ theme }) => `
   font-size: ${theme.h2.fontSize}
   margin: 0;
+  width: 100%;
   text-align:center;
+  @media (max-width: ${theme.sizes.tablet}){
+    font-size: ${theme.h1.fontSize}
+  }: 
 `}
 `;
