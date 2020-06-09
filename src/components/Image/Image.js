@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Image = ({ src, ...props }) => (
-  <img {...props} onLoad={onLoadImage} src={src} />
-);
+const Image = ({ src, ...props }) => <img {...props} src={src} />;
 
 Image.propTypes = {
   src: PropTypes.string.isRequired,

@@ -8,7 +8,7 @@ module.exports = {
     filename: "main.js",
     publicPath: "/"
   },
-  mode: process.env.NODE_ENV || "development",
+  mode: "development",
   module: {
     rules: [
       { test: /\.jsx?$/, loader: "babel-loader", exclude: /node_modules/ }
@@ -25,6 +25,9 @@ module.exports = {
     historyApiFallback: true,
     watchContentBase: true,
     open: true
+  },
+  node: {
+    fs: "empty"
   },
   optimization: {
     minimize: true,
