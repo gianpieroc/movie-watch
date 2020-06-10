@@ -8,6 +8,8 @@
 4. `yarn start`
 5. Open localhost.rakuten.tv in your browser
 
+If you find any issue opening localhost.rakuten.tv, go to the troubleshooting section.
+
 ## Deployment
 1. run `npm run deploy`
 2. build is located in build/ folder
