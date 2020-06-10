@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll",
     "test:no-watch": "jest",
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development --disable-host-check --host 0.0.0.0 --port 80",
     "build": "NODE_ENV=production webpack --mode production",
     "coverage": "jest --coverage",
     "lint": "eslint ."

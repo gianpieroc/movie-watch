@@ -23,7 +23,7 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
     watchContentBase: true,
-    open: true
+    open: false
   },
   node: {
     fs: "empty"

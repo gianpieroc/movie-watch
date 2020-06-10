@@ -1,7 +1,7 @@
 import { rakutenQueryParams, API_URL } from "../constants";
 import fetchApi from "../utils/fetchApi";
 
-export default class ApiBuilder {
+export default class ApiGateway {
   url = API_URL;
   queryParams = "";
   options = {};
