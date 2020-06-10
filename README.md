@@ -72,13 +72,13 @@ Project made using webpack, react, redux, and styled-components.
   Added in actionWatcherMiddleware a module pattern located in triggerActions, that helps me to handle actions in tests easier
 
 ### Crossbrowser
-  Added react-polyfill to work with multiple browsers
+  Added [core-js](https://github.com/zloirock/core-js) for cross-browser functionality
 
 ## Troubleshooting
   
   ### CORS
   *WorkAround 1.*
-    Assign 127.0.0.1 localhost.rakuten.tv in your hosts list
+    1. Assign 127.0.0.1 localhost.rakuten.tv in your hosts list
      https://support.rackspace.com/how-to/modify-your-hosts-file/
   
   *WorkAround 2.*
