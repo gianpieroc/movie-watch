@@ -81,6 +81,7 @@
     "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
+    "core-js": "^3.6.5",
     "history": "4.10.1",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
