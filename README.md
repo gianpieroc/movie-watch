@@ -8,6 +8,10 @@
 4. `yarn start`
 5. Open localhost.rakuten.tv in your browser
 
+## Deployment
+1. run `npm run deploy`
+2. build is located in build/ folder
+
 ## About
 
 Project made using webpack, react, redux, and styled-components.
