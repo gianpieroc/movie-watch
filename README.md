@@ -61,7 +61,7 @@ Project made using webpack, react, redux, and styled-components.
     2. prettier.
     3. husky: prepush mode: triggers coverage.
               prepush mode: triggers eslint.
-    4. Coverage: 80% for statements,  except branches which has 70%.
+    4. Coverage: 80% for most of measures except branches which has 70%.
   
 ### ApiBuilder
   To show up inheritance in javascript, I created ApiGateway as parent Class in api folder. And Movie, Streaming, and List inherits from it.
