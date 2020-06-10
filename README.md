@@ -77,11 +77,11 @@ Project made using webpack, react, redux, and styled-components.
 ## Troubleshooting
   
   ### CORS
-  ~WorkAround 1.~
+  *WorkAround 1.*
     Assign 127.0.0.1 localhost.rakuten.tv in your hosts list
      https://support.rackspace.com/how-to/modify-your-hosts-file/
   
-  ~WorkAround 2.~
+  *WorkAround 2.*
    1. Install any CORS access app, in chrome could be: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es
    2. Add https://gizmo.rakuten.tv/ to the whitelist
   
